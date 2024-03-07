@@ -5,29 +5,28 @@ using UnityEngine.EventSystems;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private Transform childtransform;
     [SerializeField] private Rigidbody2D playerRigidBody;
     [SerializeField] private Vector2 forceToApply;
     private Vector2 screenBounds;
-    private float offset = 0.6f;
+    [SerializeField] private float screenBoundsOffset;
     [SerializeField] private CameraMovement cmScript; 
 
-    void Start()
-    {
-        //Physics2D.gravity = new Vector2(0, -9.8f);
-        screenBounds = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
-        Debug.Log(screenBounds.y);
-    }
     private void FixedUpdate()
     {
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x,-(screenBounds.x - offset), (screenBounds.x - offset)), Mathf.Clamp(transform.position.y, -6f, (screenBounds.y - offset)), transform.position.z);
+        screenBounds = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
+        //Debug.Log(screenBounds);
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x , -(screenBounds.x - screenBoundsOffset), (screenBounds.x - screenBoundsOffset)) , Mathf.Clamp(transform.position.y, -6f, (screenBounds.y - screenBoundsOffset)) , transform.position.z);
         //Debug.Log(Physics2D.gravity);
+        if (playerRigidBody.velocity == Vector2.zero)
+        {
+            cmScript.MoveCamera();
+        }
     }
     void Update()
     {
         if (Input.mousePresent)
         {
-            if (Input.GetMouseButtonDown(0))    // When First Clicked At A Point On Screen
+            if (Input.GetMouseButtonDown(0))
             {
                 if (!EventSystem.current.IsPointerOverGameObject())
                 {
@@ -40,16 +39,13 @@ public class PlayerMovement : MonoBehaviour
             Touch touch = Input.GetTouch(0);
             if (!EventSystem.current.IsPointerOverGameObject(0))
             {
-                if (touch.phase == TouchPhase.Began)    // When First Clicked At A Point On Screen
+                if (touch.phase == TouchPhase.Began)
                 {
                     PlayerJump();
                 }
             }
         }
-        if (playerRigidBody.velocity == Vector2.zero)
-        {
-            cmScript.MoveCamera();
-        }
+        
         //if (Input.GetKeyDown(KeyCode.I))
         //{
         //    Physics2D.gravity = new Vector2(0, -5.0f);
