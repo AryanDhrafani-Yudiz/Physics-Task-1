@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class PlayerMovementScript : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private Transform childtransform;
     [SerializeField] private Rigidbody2D playerRigidBody;
     [SerializeField] private Vector2 forceToApply;
     private Vector2 screenBounds;
     private float offset = 0.6f;
+    [SerializeField] private CameraMovement cmScript; 
 
     void Start()
     {
@@ -44,6 +45,10 @@ public class PlayerMovementScript : MonoBehaviour
                     PlayerJump();
                 }
             }
+        }
+        if (playerRigidBody.velocity == Vector2.zero)
+        {
+            cmScript.MoveCamera();
         }
         //if (Input.GetKeyDown(KeyCode.I))
         //{
