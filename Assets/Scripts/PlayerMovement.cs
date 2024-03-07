@@ -45,22 +45,6 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         }
-        
-        //if (Input.GetKeyDown(KeyCode.I))
-        //{
-        //    Physics2D.gravity = new Vector2(0, -5.0f);
-        //    Debug.Log(Physics2D.gravity);
-        //}
-        //if (Input.GetKeyDown(KeyCode.D))
-        //{
-        //    Physics2D.gravity = new Vector2(0, -15.0f);
-        //    Debug.Log(Physics2D.gravity);
-        //}
-        //if (Input.GetKeyDown(KeyCode.X))
-        //{
-        //    Physics2D.gravity = new Vector2(0, -9.8f);
-        //    Debug.Log(Physics2D.gravity);
-        //}
     }
     private void PlayerJump()
     {
