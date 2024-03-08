@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -9,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 screenBounds;
     [SerializeField] private float screenBoundsOffset;
     [SerializeField] private CameraMovement cmScript;
+    [SerializeField] private UIManagerScript UIScript;
 
     private void Awake()
     {
@@ -22,33 +22,36 @@ public class PlayerMovement : MonoBehaviour
         {
             cmScript.MoveCamera();
         }
+        if (transform.position.y < -5.69f)
+        {
+            UIScript.OnGameOverScreen();
+        }
     }
     void Update()
     {
-        if (Input.mousePresent)
+        if(UIScript.gamePlayScreen)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.mousePresent)
             {
-                if (!EventSystem.current.IsPointerOverGameObject())
+                if (Input.GetMouseButtonDown(0))
                 {
-                    PlayerJump();
+                    if (!EventSystem.current.IsPointerOverGameObject())
+                    {
+                        PlayerJump();
+                    }
                 }
             }
-        }
-        else if (Input.touchCount > 0)
-        {
-            Touch touch = Input.GetTouch(0);
-            if (!EventSystem.current.IsPointerOverGameObject(0))
+            else if (Input.touchCount > 0)
             {
-                if (touch.phase == TouchPhase.Began)
+                Touch touch = Input.GetTouch(0);
+                if (!EventSystem.current.IsPointerOverGameObject(0))
                 {
-                    PlayerJump();
+                    if (touch.phase == TouchPhase.Began)
+                    {
+                        PlayerJump();
+                    }
                 }
             }
-        }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            SceneManager.LoadScene("MainLevel", LoadSceneMode.Single);
         }
     }
     private void PlayerJump()
