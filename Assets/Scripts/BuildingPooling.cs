@@ -19,6 +19,7 @@ public class BuildingPooling : MonoBehaviour
         SpawnStartingBuilding();
         SpawnBuilding(FindNextPosition());
         SpawnBuilding(FindNextPosition());
+        SpawnBuilding(FindNextPosition());
     }
     public void SpawnStartingBuilding()
     {
