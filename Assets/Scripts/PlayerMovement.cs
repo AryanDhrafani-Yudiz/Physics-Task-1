@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -14,9 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
-        //Debug.Log(screenBounds);
         transform.position = new Vector3(Mathf.Clamp(transform.position.x , -(screenBounds.x - screenBoundsOffset), (screenBounds.x - screenBoundsOffset)) , Mathf.Clamp(transform.position.y, -6f, (screenBounds.y - screenBoundsOffset)) , transform.position.z);
-        //Debug.Log(Physics2D.gravity);
         if (playerRigidBody.velocity == Vector2.zero)
         {
             cmScript.MoveCamera();
