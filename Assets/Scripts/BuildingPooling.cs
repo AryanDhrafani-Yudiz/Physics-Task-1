@@ -7,6 +7,7 @@ public class BuildingPooling : MonoBehaviour
     [SerializeField] private Transform prefab3Position;
     private float xOffset;
     private float currPosition;
+    private int count = 0;
 
     private void Awake()
     {
@@ -16,37 +17,31 @@ public class BuildingPooling : MonoBehaviour
     {
         currPosition = prefab3Position.position.x;
         SpawnStartingBuilding();
-        SpawnStartingBuilding();
-        SpawnStartingBuilding();
         SpawnBuilding(FindNextPosition());
         SpawnBuilding(FindNextPosition());
     }
     public void SpawnStartingBuilding()
     {
-        for (int i = 0; i < 3; i++)
+        while(count<3)
         {
             GameObject Building = ObjectPooling.Instance.ObjectToPoolStarting();
 
             if (Building != null)
             {
                 Building.SetActive(true);
-                break;
             }
+            count++;
         }
     }
 
     public void SpawnBuilding(float position1)
     {
-        for (int i = 0; i < 5; i++)
-        {
-            GameObject Building = ObjectPooling.Instance.ObjectToPool();
+        GameObject Building = ObjectPooling.Instance.ObjectToPool();
 
-            if (Building != null)
-            {
-                Building.transform.position = new Vector3(position1 , Building.transform.position.y , Building.transform.position.z);
-                Building.SetActive(true);
-                break;
-            }
+        if (Building != null)
+        {
+            Building.transform.position = new Vector3(position1 , Building.transform.position.y , Building.transform.position.z);
+            Building.SetActive(true);
         }
     }
     public float FindNextPosition()
