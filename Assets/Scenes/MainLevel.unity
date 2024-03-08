@@ -726,7 +726,7 @@ GameObject:
   - component: {fileID: 5450826130193974977}
   - component: {fileID: 6806900924870900223}
   m_Layer: 0
-  m_Name: PoolerObject
+  m_Name: ObjectPooler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -743,7 +743,7 @@ GameObject:
   - component: {fileID: 8762307501906384546}
   - component: {fileID: 8759894885502551852}
   m_Layer: 0
-  m_Name: PlayerPool
+  m_Name: BuildingSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

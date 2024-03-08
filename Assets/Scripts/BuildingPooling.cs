@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class PlayerPools : MonoBehaviour
+public class BuildingPooling : MonoBehaviour
 {
-    public static PlayerPools Inst;
+    public static BuildingPooling Inst;
 
     [SerializeField] private Transform prefab1Posi;
     [SerializeField] private Transform prefab2Posi;

@@ -26,17 +26,14 @@ public class ObjectPooling : MonoBehaviour
 
         for (int i = 0; i < _numberOfEachObject; i++)
         {
-            //tmp = Instantiate(_prefab1);
             tmp = Instantiate(_prefab1, parentObject , true);
             tmp.SetActive(false);
             ListOfObjects.Add(tmp);
 
-            //tmp = Instantiate(_prefab2);
             tmp = Instantiate(_prefab2, parentObject, true);
             tmp.SetActive(false);
             ListOfObjects.Add(tmp);
 
-            //tmp = Instantiate(_prefab3);
             tmp = Instantiate(_prefab3, parentObject, true);
             tmp.SetActive(false);
             ListOfObjects.Add(tmp);

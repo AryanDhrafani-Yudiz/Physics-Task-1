@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class BuildingDeactivator : MonoBehaviour
+public class BuildingActivatorDeactivator : MonoBehaviour
 {
     void OnBecameInvisible() // Doesnt Work If Scene View Is On or Shadows Are Being Casted
         {
             this.gameObject.SetActive(false);
-            PlayerPools.Inst.SpawnBuilding(PlayerPools.Inst.FindNextPosition());
+        BuildingPooling.Inst.SpawnBuilding(BuildingPooling.Inst.FindNextPosition());
         }
 }

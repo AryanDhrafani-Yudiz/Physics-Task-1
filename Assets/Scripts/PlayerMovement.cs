@@ -7,8 +7,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Vector2 forceToApply;
     private Vector2 screenBounds;
     [SerializeField] private float screenBoundsOffset;
-    [SerializeField] private CameraMovement cmScript; 
+    [SerializeField] private CameraMovement cmScript;
 
+    private void Awake()
+    {
+        Application.targetFrameRate = 120;
+    }
     private void FixedUpdate()
     {
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
