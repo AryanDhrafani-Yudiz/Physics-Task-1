@@ -49,17 +49,14 @@ public class UIManagerScript : MonoBehaviour
     }
     public void onLowGravitySelected()
     {
-        playerRigidBody.gravityScale = 0.5f;
-        Debug.Log("Low Gravity");
+        Physics2D.gravity = new Vector2(0, -5f);
     }
     public void onMedGravitySelected()
     {
-        playerRigidBody.gravityScale = 1f;
-        Debug.Log("Low Gravity");
+        Physics2D.gravity = new Vector2(0, -9.8f);
     }
     public void onHighGravitySelected()
     {
-        playerRigidBody.gravityScale = 1.5f;
-        Debug.Log("Low Gravity");
+        Physics2D.gravity = new Vector2(0, -15f);
     }
 }
