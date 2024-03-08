@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -44,6 +45,10 @@ public class PlayerMovement : MonoBehaviour
                     PlayerJump();
                 }
             }
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            SceneManager.LoadScene("MainLevel", LoadSceneMode.Single);
         }
     }
     private void PlayerJump()

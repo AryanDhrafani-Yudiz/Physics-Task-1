@@ -3,40 +3,42 @@ using UnityEngine;
 
 public class ObjectPooling : MonoBehaviour
 {
-    public static ObjectPooling Inst;
+    public static ObjectPooling Instance;
 
-    [SerializeField] private int _numberOfEachObject;
-    [SerializeField] private GameObject _prefab1;
-    [SerializeField] private GameObject _prefab2;
-    [SerializeField] private GameObject _prefab3;
+    [SerializeField] private int numberOfEachObject;
+    [SerializeField] private GameObject prefab1;
+    [SerializeField] private GameObject prefab2;
+    [SerializeField] private GameObject prefab3;
     [SerializeField] private Transform parentObject;
-    private int getRandomItem = 0;
 
+    private int getRandomItem = 0;
+    
     public List<GameObject> ListOfObjects;
 
     private void Awake()
     {
-        Inst = this;
+        if (Instance == null) Instance = this;
         CreateObjects();
     }
+
     public void CreateObjects()
     {
         ListOfObjects = new();
-        GameObject tmp;
+        GameObject temp;
 
-        for (int i = 0; i < _numberOfEachObject; i++)
+        for (int i = 0; i < numberOfEachObject; i++)
         {
-            tmp = Instantiate(_prefab1, parentObject , true);
-            tmp.SetActive(false);
-            ListOfObjects.Add(tmp);
+            temp = Instantiate(prefab1, parentObject , true);
+            temp.SetActive(false);
+            ListOfObjects.Add(temp);
 
-            tmp = Instantiate(_prefab2, parentObject, true);
-            tmp.SetActive(false);
-            ListOfObjects.Add(tmp);
+            temp = Instantiate(prefab2, parentObject, true);
+            temp.SetActive(false);
+            ListOfObjects.Add(temp);
 
-            tmp = Instantiate(_prefab3, parentObject, true);
-            tmp.SetActive(false);
-            ListOfObjects.Add(tmp);
+            temp = Instantiate(prefab3, parentObject, true);
+            temp.SetActive(false);
+            ListOfObjects.Add(temp);
         }
     }
     public GameObject ObjectToPool()
@@ -56,7 +58,6 @@ public class ObjectPooling : MonoBehaviour
     {
         for (int i = 0; i < 3; i++)
         {
-
             if (!ListOfObjects[i].activeInHierarchy)
             {
                 return ListOfObjects[i];

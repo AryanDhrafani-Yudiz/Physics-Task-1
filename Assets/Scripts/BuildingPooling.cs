@@ -2,31 +2,30 @@ using UnityEngine;
 
 public class BuildingPooling : MonoBehaviour
 {
-    public static BuildingPooling Inst;
+    public static BuildingPooling Instance;
 
-    [SerializeField] private Transform prefab1Posi;
-    [SerializeField] private Transform prefab2Posi;
-    [SerializeField] private Transform prefab3Posi;
+    [SerializeField] private Transform prefab3Position;
     private float xOffset;
     private float currPosition;
 
     private void Awake()
     {
-        Inst = this;
+        if (Instance == null) Instance = this;
     }
     private void Start()
     {
+        currPosition = prefab3Position.position.x;
         SpawnStartingBuilding();
         SpawnStartingBuilding();
         SpawnStartingBuilding();
-        currPosition = prefab3Posi.position.x;
+        SpawnBuilding(FindNextPosition());
         SpawnBuilding(FindNextPosition());
     }
     public void SpawnStartingBuilding()
     {
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 3; i++)
         {
-            GameObject Building = ObjectPooling.Inst.ObjectToPoolStarting();
+            GameObject Building = ObjectPooling.Instance.ObjectToPoolStarting();
 
             if (Building != null)
             {
@@ -40,7 +39,7 @@ public class BuildingPooling : MonoBehaviour
     {
         for (int i = 0; i < 5; i++)
         {
-            GameObject Building = ObjectPooling.Inst.ObjectToPool();
+            GameObject Building = ObjectPooling.Instance.ObjectToPool();
 
             if (Building != null)
             {
@@ -52,7 +51,7 @@ public class BuildingPooling : MonoBehaviour
     }
     public float FindNextPosition()
     {
-        xOffset = Random.Range(3.5f, 5.5f);
+        xOffset = Random.Range(3.5f, 4.5f);
         currPosition = currPosition + xOffset;
         return currPosition;
     }
