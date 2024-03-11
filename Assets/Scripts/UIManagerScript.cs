@@ -28,12 +28,14 @@ public class UIManagerScript : MonoBehaviour
         gamePlayScreen = false;
         GamePlayCanvas.enabled = false;
         SettingsCanvas.enabled = true;
+        Time.timeScale = 0;
     }
     public void OnResume()
     {
         gamePlayScreen = true;
         GamePlayCanvas.enabled = true;
         SettingsCanvas.enabled = false;
+        Time.timeScale = 1;
     }
     public void OnGameOverScreen()
     {
@@ -49,7 +51,7 @@ public class UIManagerScript : MonoBehaviour
     }
     public void onLowGravitySelected()
     {
-        Physics2D.gravity = new Vector2(0, -5f);
+        Physics2D.gravity = new Vector2(0, -7f);
     }
     public void onMedGravitySelected()
     {
@@ -57,6 +59,6 @@ public class UIManagerScript : MonoBehaviour
     }
     public void onHighGravitySelected()
     {
-        Physics2D.gravity = new Vector2(0, -15f);
+        Physics2D.gravity = new Vector2(0, -13f);
     }
 }

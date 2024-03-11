@@ -43,7 +43,7 @@ public class BuildingPooling : MonoBehaviour
         {
             Building.transform.position = new Vector3(position1 , Building.transform.position.y , Building.transform.position.z);
             Building.SetActive(true);
-            if (Random.Range(0,3) == 1)
+            if (Random.Range(0,2) == 1)
             {
             SpawnCoin(Building.transform.position);
             }
