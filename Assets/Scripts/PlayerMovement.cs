@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -9,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float screenBoundsOffset;
     [SerializeField] private CameraMovement cmScript;
     [SerializeField] private UIManagerScript UIScript;
+    [SerializeField] TextMeshProUGUI tmproGameObject;
+    private int coinsCounter = 0;
 
     private void Awake()
     {
@@ -17,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x , -(screenBounds.x - screenBoundsOffset), (screenBounds.x - screenBoundsOffset)) , Mathf.Clamp(transform.position.y, -6f, (screenBounds.y - screenBoundsOffset)) , transform.position.z);
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -(screenBounds.x - screenBoundsOffset), (screenBounds.x - screenBoundsOffset)), Mathf.Clamp(transform.position.y, -6f, (screenBounds.y - screenBoundsOffset)), transform.position.z);
         if (playerRigidBody.velocity == Vector2.zero)
         {
             cmScript.MoveCamera();
@@ -53,6 +56,12 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        collision.gameObject.SetActive(false);
+        coinsCounter += 10;
+        tmproGameObject.text = coinsCounter.ToString();
     }
     private void PlayerJump()
     {
