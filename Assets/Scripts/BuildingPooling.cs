@@ -25,7 +25,7 @@ public class BuildingPooling : MonoBehaviour
     {
         while(count<3)
         {
-            GameObject Building = ObjectPooling.Instance.ObjectToPoolStarting();
+            GameObject Building = ObjectPooling.Instance.BuildingObjectToPoolStarting();
 
             if (Building != null)
             {
@@ -37,7 +37,7 @@ public class BuildingPooling : MonoBehaviour
 
     public void SpawnBuilding(float position1)
     {
-        GameObject Building = ObjectPooling.Instance.ObjectToPool();
+        GameObject Building = ObjectPooling.Instance.BuildingObjectToPool();
 
         if (Building != null)
         {
