@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class BuildingPooling : MonoBehaviour
 {
@@ -44,7 +43,7 @@ public class BuildingPooling : MonoBehaviour
         {
             Building.transform.position = new Vector3(position1 , Building.transform.position.y , Building.transform.position.z);
             Building.SetActive(true);
-            if (Mathf.Floor(Random.Range(0,1)) == 0)
+            if (Random.Range(0,3) == 1)
             {
             SpawnCoin(Building.transform.position);
             }
