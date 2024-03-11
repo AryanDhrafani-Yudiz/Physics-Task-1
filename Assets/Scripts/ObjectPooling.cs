@@ -44,7 +44,6 @@ public class ObjectPooling : MonoBehaviour
             temp = Instantiate(buildingPrefab3, buildingParentObject, true);
             temp.SetActive(false);
             ListOfBuildingObjects.Add(temp);
-
         }
     }
     public void CreateCoinObjects()

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class BuildingPooling : MonoBehaviour
 {
@@ -43,6 +44,10 @@ public class BuildingPooling : MonoBehaviour
         {
             Building.transform.position = new Vector3(position1 , Building.transform.position.y , Building.transform.position.z);
             Building.SetActive(true);
+            if (Mathf.Floor(Random.Range(0,1)) == 0)
+            {
+            SpawnCoin(Building.transform.position);
+            }
         }
     }
     public float FindNextPosition()
@@ -50,5 +55,15 @@ public class BuildingPooling : MonoBehaviour
         xOffset = Random.Range(3.5f, 4.5f);
         currPosition = currPosition + xOffset;
         return currPosition;
+    }
+    public void SpawnCoin(Vector3 position)
+    {
+        GameObject Coin = ObjectPooling.Instance.CoinsObjectToPool();
+
+        if (Coin != null)
+        {
+            Coin.transform.position = new Vector3(position.x , position.y + 3f , position.z);
+            Coin.SetActive(true);
+        }
     }
 }

@@ -4352,7 +4352,7 @@ MonoBehaviour:
   buildingPrefab2: {fileID: 4306853617657148302, guid: bedc7a2a088204088a4ea596cb5e2ae2, type: 3}
   buildingPrefab3: {fileID: 1014535262389942167, guid: 1ecde0fa751a0409f91aa89165a11742, type: 3}
   buildingParentObject: {fileID: 84044653}
-  numberOfCoinObject: 5
+  numberOfCoinObject: 10
   coinPrefab: {fileID: 5578546107071835749, guid: 65d1015e7f2bf4d3fb5de935464399c5, type: 3}
   coinParentObject: {fileID: 1849358710}
   ListOfBuildingObjects: []
