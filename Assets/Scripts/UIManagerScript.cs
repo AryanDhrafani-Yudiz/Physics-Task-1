@@ -49,6 +49,10 @@ public class UIManagerScript : MonoBehaviour
         SceneManager.LoadScene("MainLevel", LoadSceneMode.Single);
         Time.timeScale = 1;
     }
+    public void OnExitBtnClick()
+    {
+        Application.Quit();
+    }
     public void onLowGravitySelected()
     {
         Physics2D.gravity = new Vector2(0, -7f);
