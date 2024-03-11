@@ -1556,7 +1556,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 0.5882353}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -2171,7 +2171,6 @@ MonoBehaviour:
   GamePlayCanvas: {fileID: 1827875675}
   SettingsCanvas: {fileID: 48627007}
   GameOverCanvas: {fileID: 1705707238}
-  playerRigidBody: {fileID: 0}
   gamePlayScreen: 0
 --- !u!1 &1156414472
 GameObject:
@@ -2224,7 +2223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -2626,7 +2625,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 0.5882353}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -4518,7 +4517,7 @@ GameObject:
   - component: {fileID: 8762307501906384546}
   - component: {fileID: 8759894885502551852}
   m_Layer: 0
-  m_Name: BuildingSpawner
+  m_Name: Building&CoinSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4556,16 +4555,16 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 784261411}
+  - {fileID: 412744632}
   - {fileID: 1092337143}
+  - {fileID: 784261411}
   - {fileID: 709360274}
   - {fileID: 1827875676}
   - {fileID: 48627008}
   - {fileID: 1705707239}
-  - {fileID: 412744632}
+  - {fileID: 8762307501906384546}
   - {fileID: 519420032}
   - {fileID: 162062340}
-  - {fileID: 8762307501906384546}
   - {fileID: 5450826130193974977}
   - {fileID: 84044653}
   - {fileID: 1849358710}

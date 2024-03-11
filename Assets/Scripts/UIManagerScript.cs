@@ -7,7 +7,6 @@ public class UIManagerScript : MonoBehaviour
     [SerializeField] private Canvas GamePlayCanvas;
     [SerializeField] private Canvas SettingsCanvas;
     [SerializeField] private Canvas GameOverCanvas;
-    [SerializeField] private Rigidbody2D playerRigidBody;
     public bool gamePlayScreen = false;
 
     void Start()
