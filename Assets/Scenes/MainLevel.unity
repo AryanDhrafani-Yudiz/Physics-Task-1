@@ -617,6 +617,7 @@ MonoBehaviour:
   cmScript: {fileID: 519420033}
   UIScript: {fileID: 1092337144}
   tmproGameObject: {fileID: 1161176708}
+  threshold: 0.5
 --- !u!1 &169359791
 GameObject:
   m_ObjectHideFlags: 0

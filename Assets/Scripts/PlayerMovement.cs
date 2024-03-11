@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
         {
             cmScript.MoveCamera();
         }
-        if (transform.position.y < -5.69f) // Display Game Over Screen When Player Below A Certain Height
+        if (transform.position.y < -4.5f) // Display Game Over Screen When Player Below A Certain Height
         {
             UIScript.OnGameOverScreen();
         }
