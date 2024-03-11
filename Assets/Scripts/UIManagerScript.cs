@@ -47,6 +47,7 @@ public class UIManagerScript : MonoBehaviour
     public void OnRestartBtnClick() // When Restart Button Is Clicked , Scene Is Reloaded
     {
         SceneManager.LoadScene("MainLevel", LoadSceneMode.Single);
+        Time.timeScale = 1;
     }
     public void onLowGravitySelected()
     {
