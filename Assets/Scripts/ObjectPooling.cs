@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class ObjectPooling : MonoBehaviour
 {
-    public static ObjectPooling Instance;
+    public static ObjectPooling Instance; // Singleton
 
     [SerializeField] private int numberOfBuildingObject;
     [SerializeField] private GameObject buildingPrefab1;
@@ -26,7 +26,7 @@ public class ObjectPooling : MonoBehaviour
         CreateCoinObjects();
     }
 
-    public void CreateBuildingObjects()
+    public void CreateBuildingObjects() // Instantiating And Deactivating Building Objects and Adding Them To Building's List
     {
         ListOfBuildingObjects = new();
         GameObject temp;
@@ -46,7 +46,7 @@ public class ObjectPooling : MonoBehaviour
             ListOfBuildingObjects.Add(temp);
         }
     }
-    public void CreateCoinObjects()
+    public void CreateCoinObjects() // Instantiating And Deactivating Coin Objects and Adding Them To Coin's List
     {
         ListOfCoinObjects = new();
         GameObject temp;
@@ -58,7 +58,7 @@ public class ObjectPooling : MonoBehaviour
             ListOfCoinObjects.Add(temp);
         }
     }
-    public GameObject BuildingObjectToPool()
+    public GameObject BuildingObjectToPool() // Selects A Random Building Object Which Isnt Active From Heirarchy
     {
         for (int i = 0; i < ListOfBuildingObjects.Count; i++)
         {
@@ -71,7 +71,7 @@ public class ObjectPooling : MonoBehaviour
         }
         return null;
     }
-    public GameObject BuildingObjectToPoolStarting()
+    public GameObject BuildingObjectToPoolStarting() // Selects Starting 3 Buildings To Spawn
     {
         for (int i = 0; i < 3; i++)
         {
@@ -82,7 +82,7 @@ public class ObjectPooling : MonoBehaviour
         }
         return null;
     }
-    public GameObject CoinsObjectToPool()
+    public GameObject CoinsObjectToPool() // Selects Inactive Coin Game Objects To Spawn
     {
         for (int i = 0; i < ListOfCoinObjects.Count; i++)
         {

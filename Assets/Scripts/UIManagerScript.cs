@@ -23,14 +23,14 @@ public class UIManagerScript : MonoBehaviour
         GamePlayCanvas.enabled = true;
         StartingScreenCanvas.enabled = false;
     }
-    public void OnSettingsBtnClick()
+    public void OnSettingsBtnClick() // Pause The Game On Settings Btn Click
     {
         gamePlayScreen = false;
         GamePlayCanvas.enabled = false;
         SettingsCanvas.enabled = true;
         Time.timeScale = 0;
     }
-    public void OnResume()
+    public void OnResume() // Unpause The Game On Resume Btn Click
     {
         gamePlayScreen = true;
         GamePlayCanvas.enabled = true;
@@ -45,7 +45,7 @@ public class UIManagerScript : MonoBehaviour
         SettingsCanvas.enabled = false;
         GameOverCanvas.enabled = true;
     }
-    public void OnRestartBtnClick()
+    public void OnRestartBtnClick() // When Restart Button Is Clicked , Scene Is Reloaded
     {
         SceneManager.LoadScene("MainLevel", LoadSceneMode.Single);
     }

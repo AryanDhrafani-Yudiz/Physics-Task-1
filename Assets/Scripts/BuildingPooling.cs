@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BuildingPooling : MonoBehaviour
 {
-    public static BuildingPooling Instance;
+    public static BuildingPooling Instance; // Singleton
 
     [SerializeField] private Transform prefab3Position;
     private float xOffset;
@@ -21,7 +21,7 @@ public class BuildingPooling : MonoBehaviour
         SpawnBuilding(FindNextPosition());
         SpawnBuilding(FindNextPosition());
     }
-    public void SpawnStartingBuilding()
+    public void SpawnStartingBuilding() // Spawns Starting 3 Buildings
     {
         while(count<3)
         {
@@ -35,7 +35,7 @@ public class BuildingPooling : MonoBehaviour
         }
     }
 
-    public void SpawnBuilding(float position1)
+    public void SpawnBuilding(float position1) // Spawn Building At Relative Position To RightMost Building Present
     {
         GameObject Building = ObjectPooling.Instance.BuildingObjectToPool();
 
@@ -49,13 +49,13 @@ public class BuildingPooling : MonoBehaviour
             }
         }
     }
-    public float FindNextPosition()
+    public float FindNextPosition() // Finds Position To Spawn Next Building At , After The Rightmost Building
     {
         xOffset = Random.Range(3.5f, 4.5f);
         currPosition = currPosition + xOffset;
         return currPosition;
     }
-    public void SpawnCoin(Vector3 position)
+    public void SpawnCoin(Vector3 position) // Spawn Coin On Top Of Building
     {
         GameObject Coin = ObjectPooling.Instance.CoinsObjectToPool();
 
